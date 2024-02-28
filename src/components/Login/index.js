@@ -24,7 +24,7 @@ const Login = ({ setIsAuthenticated }) => {
 
           Swal.fire({
             icon: 'success',
-            title: 'Successfully logged in!',
+            title: 'Inicio de sesión exitoso!',
             showConfirmButton: false,
             timer: 1500,
           });
@@ -41,7 +41,7 @@ const Login = ({ setIsAuthenticated }) => {
           Swal.fire({
             icon: 'error',
             title: 'Error!',
-            text: 'Incorrect email or password.',
+            text: 'Correo o contraseña incorrectos.',
             showConfirmButton: true,
           });
         },
@@ -52,8 +52,8 @@ const Login = ({ setIsAuthenticated }) => {
   return (
     <div className="small-container">
       <form onSubmit={handleLogin}>
-        <h1>Admin Login</h1>
-        <label htmlFor="email">Email</label>
+        <h1>Inicio de sesión</h1>
+        <label htmlFor="email">Correo</label>
         <input
           id="email"
           type="email"
@@ -62,7 +62,7 @@ const Login = ({ setIsAuthenticated }) => {
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">Contraseña</label>
         <input
           id="password"
           type="password"

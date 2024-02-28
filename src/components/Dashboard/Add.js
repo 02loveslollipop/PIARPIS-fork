@@ -47,8 +47,8 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
   return (
     <div className="small-container">
       <form onSubmit={handleAdd}>
-        <h1>Add Employee</h1>
-        <label htmlFor="firstName">First Name</label>
+        <h1>Añadir vehículo</h1>
+        <label htmlFor="firstName">Nombre</label>
         <input
           id="firstName"
           type="text"
@@ -56,7 +56,7 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
           value={firstName}
           onChange={e => setFirstName(e.target.value)}
         />
-        <label htmlFor="lastName">Last Name</label>
+        <label htmlFor="lastName">Apellido</label>
         <input
           id="lastName"
           type="text"

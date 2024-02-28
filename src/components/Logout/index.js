@@ -6,9 +6,9 @@ const Logout = ({ setIsAuthenticated }) => {
     Swal.fire({
       icon: 'question',
       title: 'Cerrar sesión',
-      text: 'Seguro que desea salir?',
+      text: '¿Seguro que desea salir?',
       showCancelButton: true,
-      confirmButtonText: 'Yes',
+      confirmButtonText: 'Si',
     }).then(result => {
       if (result.value) {
         Swal.fire({
@@ -32,7 +32,7 @@ const Logout = ({ setIsAuthenticated }) => {
       className="muted-button"
       onClick={handleLogout}
     >
-      Cerrar sesión
+      Cerrar sesión de PIARPIS
     </button>
   );
 };

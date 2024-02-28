@@ -18,12 +18,12 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
           <tr>
             <th>No.</th>
             <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Email</th>
-            <th>Salary</th>
-            <th>Date</th>
+            <th>Placa</th>
+            <th>Valor del parqueadero</th>
+            <th>Fecha de Inicio</th>
+            <th>Fecha de Fin</th>
             <th colSpan={2} className="text-center">
-              Actions
+              Acciones Disponibles
             </th>
           </tr>
         </thead>
@@ -42,7 +42,7 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
                     onClick={() => handleEdit(employee.id)}
                     className="button muted-button"
                   >
-                    Edit
+                    Editar
                   </button>
                 </td>
                 <td className="text-left">
@@ -50,7 +50,7 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
                     onClick={() => handleDelete(employee.id)}
                     className="button muted-button"
                   >
-                    Delete
+                    Eliminar
                   </button>
                 </td>
               </tr>

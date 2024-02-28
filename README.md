@@ -7,6 +7,13 @@
 
 ## Development
 
+Clone the repository:
+
+```
+git clone https://github.com/Arroyave03/PIARPIS.git
+cd piarpis
+```
+
 Install dependencies:
 
 ```

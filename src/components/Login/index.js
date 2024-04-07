@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import imagen from '../../assets/imagen.jpg';
 
 const Login = ({ setIsAuthenticated }) => {
   const adminEmail = 'admin@example.com';
@@ -50,7 +51,7 @@ const Login = ({ setIsAuthenticated }) => {
   };
 
   return (
-    <div className="small-container">
+    <div className="custom-container">
       <form onSubmit={handleLogin}>
         <h1>Inicio de sesión - PIARPIS</h1>
         <label htmlFor="email">Correo Electrónico</label>
@@ -73,6 +74,7 @@ const Login = ({ setIsAuthenticated }) => {
         />
         <input style={{ marginTop: '12px' }} type="submit" value="Login" />
       </form>
+      <img src={imagen} alt="Imagen" />
     </div>
   );
 };

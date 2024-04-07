@@ -17,7 +17,7 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
       return Swal.fire({
         icon: 'error',
         title: 'Error!',
-        text: 'All fields are required.',
+        text: 'Debe llenar todos los campos.',
         showConfirmButton: true,
       });
     }
@@ -44,8 +44,8 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
 
     Swal.fire({
       icon: 'success',
-      title: 'Updated!',
-      text: `${employee.firstName} ${employee.lastName}'s data has been updated.`,
+      title: 'Actualizado!',
+      text: `${employee.firstName}, placa: ${employee.lastName} ha sido actualizado.`,
       showConfirmButton: false,
       timer: 1500,
     });
@@ -55,7 +55,7 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
     <div className="small-container">
       <form onSubmit={handleUpdate}>
         <h1>Edit Employee</h1>
-        <label htmlFor="firstName">First Name</label>
+        <label htmlFor="firstName">Nombre</label>
         <input
           id="firstName"
           type="text"
@@ -63,7 +63,7 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
           value={firstName}
           onChange={e => setFirstName(e.target.value)}
         />
-        <label htmlFor="lastName">Last Name</label>
+        <label htmlFor="lastName">Placa</label>
         <input
           id="lastName"
           type="text"
@@ -71,23 +71,23 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
           value={lastName}
           onChange={e => setLastName(e.target.value)}
         />
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Valor parqueadero ($)</label>
         <input
           id="email"
-          type="email"
+          type="number"
           name="email"
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
-        <label htmlFor="salary">Salary ($)</label>
+        <label htmlFor="salary">Fecha inicio</label>
         <input
           id="salary"
-          type="number"
+          type="date"
           name="salary"
           value={salary}
           onChange={e => setSalary(e.target.value)}
         />
-        <label htmlFor="date">Date</label>
+        <label htmlFor="date">Fecha fin</label>
         <input
           id="date"
           type="date"
@@ -96,12 +96,12 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
           onChange={e => setDate(e.target.value)}
         />
         <div style={{ marginTop: '30px' }}>
-          <input type="submit" value="Update" />
+          <input type="submit" value="Actualizar" />
           <input
             style={{ marginLeft: '12px' }}
             className="muted-button"
             type="button"
-            value="Cancel"
+            value="Cancelar"
             onClick={() => setIsEditing(false)}
           />
         </div>

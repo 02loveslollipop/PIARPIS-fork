@@ -15,7 +15,7 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
       return Swal.fire({
         icon: 'error',
         title: 'Error!',
-        text: 'All fields are required.',
+        text: 'Debe llenar todos los campos.',
         showConfirmButton: true,
       });
     }
@@ -38,7 +38,7 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
     Swal.fire({
       icon: 'success',
       title: 'Added!',
-      text: `${firstName} ${lastName}'s data has been Added.`,
+      text: `${firstName} ha sido añadido.`,
       showConfirmButton: false,
       timer: 1500,
     });
@@ -56,7 +56,7 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
           value={firstName}
           onChange={e => setFirstName(e.target.value)}
         />
-        <label htmlFor="lastName">Apellido</label>
+        <label htmlFor="lastName">Placa</label>
         <input
           id="lastName"
           type="text"
@@ -64,23 +64,23 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
           value={lastName}
           onChange={e => setLastName(e.target.value)}
         />
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Valor parqueadero ($)</label>
         <input
           id="email"
-          type="email"
+          type="number"
           name="email"
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
-        <label htmlFor="salary">Salary ($)</label>
+        <label htmlFor="salary">Fecha inicio</label>
         <input
           id="salary"
-          type="number"
+          type="date"
           name="salary"
           value={salary}
           onChange={e => setSalary(e.target.value)}
         />
-        <label htmlFor="date">Date</label>
+        <label htmlFor="date">Fecha fin</label>
         <input
           id="date"
           type="date"
@@ -89,12 +89,12 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
           onChange={e => setDate(e.target.value)}
         />
         <div style={{ marginTop: '30px' }}>
-          <input type="submit" value="Add" />
+          <input type="submit" value="Agregar" />
           <input
             style={{ marginLeft: '12px' }}
             className="muted-button"
             type="button"
-            value="Cancel"
+            value="Cancelar"
             onClick={() => setIsAdding(false)}
           />
         </div>

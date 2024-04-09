@@ -1,8 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+async function getParkings() {
+  const url = "https://02loveslollipop.pythonanywhere.com/get"; // TODO: no quemar la URL
+  const response = await fetch(url,{
+    method: 'GET',
+    headers: {
+      'hash' : localStorage.getItem('secretAuth')
+    }});
+  if (!response.ok) {
+    throw new Error('Error al obtener los vehículos');
+  }
+  return await response.json();
+}
 
 const Table = ({ employees, handleEdit, handleDelete }) => {
-  employees.forEach((employee, i) => {
-    employee.id = i + 1;
+  const [parkings, setParkings] = useState([]);
+
+  useEffect(() => {
+    async function fetchParkings() {
+      try {
+        const data = await getParkings();
+        setParkings(data);
+      } catch (error) {
+        console.error('Error fetching parkings:', error);
+      }
+    }
+    fetchParkings();
+  }, []);
+
+  parkings.forEach((parking, i) => {
+    parking.id = i + 1;
   });
 
   /*
@@ -32,18 +59,18 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
           </tr>
         </thead>
         <tbody>
-          {employees.length > 0 ? (
-            employees.map((employee, i) => (
-              <tr key={employee.id}>
+          {parkings.length > 0 ? (
+            parkings.map((parking, i) => (
+              <tr key={parking.id}>
                 <td>{i + 1}</td>
-                <td>{employee.firstName}</td>
-                <td>{employee.lastName}</td>
-                <td>{employee.email}</td>
-                <td>{employee.salary}</td>
-                <td>{employee.date} </td>
+                <td>{parking.name}</td>
+                <td>{parking.plate}</td>
+                <td>{parking.invoice}</td>
+                <td>{parking.in_time}</td>
+                <td>{parking.out_time} </td>
                 <td className="text-right">
                   <button
-                    onClick={() => handleEdit(employee.id)}
+                    onClick={() => handleEdit(parking.id)}
                     className="button muted-button"
                   >
                     Editar
@@ -51,7 +78,7 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
                 </td>
                 <td className="text-left">
                   <button
-                    onClick={() => handleDelete(employee.id)}
+                    onClick={() => handleDelete(parking.id)}
                     className="button muted-button"
                   >
                     Eliminar

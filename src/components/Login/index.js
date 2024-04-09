@@ -1,32 +1,31 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import imagen from '../../assets/imagen.jpg';
-import { wait } from '@testing-library/user-event/dist/utils';
+
+async function login(username, password) {
+  const url = "https://02loveslollipop.pythonanywhere.com/login"; // TODO: no quemar la URL
+  const data = {
+    username: username,
+    password: password
+  };
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
+  if (response.ok) {
+    const responseData = await response.json();
+    localStorage.setItem('secretAuth', responseData.secretAuth);
+    return true;
+  } else {
+    return false;
+  }
+}
 
 const Login = ({ setIsAuthenticated }) => {
-
-    async function login(username, password) {
-    const url = "https://02loveslollipop.pythonanywhere.com/login"; // TODO: no quemar la URL
-    const data = {
-        username: username,
-        password: password
-    };
-    
-    const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-    if (response.ok) {
-        const responseData = await response.json();
-        localStorage.setItem('secretAuth', responseData.secretAuth);
-        return true;
-    } else {
-        return false;
-    }
-  }
 
   const [email, setEmail] = useState('admin@example.com');
   const [password, setPassword] = useState('qwerty');

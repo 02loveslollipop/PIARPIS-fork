@@ -1,6 +1,37 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 
+/* 
+{"Id": "1", "name": "test", "plate": "test", "invoice": "test", "inicial_time": "test"}
+*/
+
+async function addParking(name,plate,invoice,inicial_time,final_time) {
+  const url = "https://02loveslollipop.pythonanywhere.com/insert"; // TODO: no quemar la URL
+  const data = {
+    name: name,
+    plate: plate,
+    invoice: invoice,
+    inicial_time: inicial_time,
+    final_time: final_time
+  };
+  console.log(localStorage.getItem('secretAuth'));
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json', 
+      'hash' : localStorage.getItem('secretAuth')
+    },
+    body: JSON.stringify(data)
+  });
+  if (!response.ok) {
+    throw new Error('Error al agregar el vehículo');
+  }
+
+
+}
+
+
 const Add = ({ employees, setEmployees, setIsAdding }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -8,8 +39,10 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
   const [salary, setSalary] = useState('');
   const [date, setDate] = useState('');
 
-  const handleAdd = e => {
+  const handleAdd = async e => {
     e.preventDefault();
+
+
 
     if (!firstName || !lastName || !email || !salary || !date) {
       return Swal.fire({
@@ -20,19 +53,18 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
       });
     }
 
-    const id = employees.length + 1;
-    const newEmployee = {
-      id,
-      firstName,
-      lastName,
-      email,
-      salary,
-      date,
-    };
+    try {
+      await addParking(firstName, lastName, email, salary, date);
+    }
+    catch (error) {
+      return Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: error.message,
+        showConfirmButton: true,
+      });
+    }
 
-    employees.push(newEmployee);
-    localStorage.setItem('employees_data', JSON.stringify(employees));
-    setEmployees(employees);
     setIsAdding(false);
 
     Swal.fire({

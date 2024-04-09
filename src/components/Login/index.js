@@ -27,8 +27,8 @@ async function login(username, password) {
 
 const Login = ({ setIsAuthenticated }) => {
 
-  const [email, setEmail] = useState('admin@example.com');
-  const [password, setPassword] = useState('qwerty');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleLogin = async e => {
     e.preventDefault();
@@ -80,9 +80,9 @@ const Login = ({ setIsAuthenticated }) => {
         <label htmlFor="email">Correo Electrónico</label>
         <input
           id="email"
-          type="text"
+          type="email"
           name="email"
-          placeholder="admin@example.com"
+          placeholder=""
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
@@ -91,7 +91,7 @@ const Login = ({ setIsAuthenticated }) => {
           id="password"
           type="password"
           name="password"
-          placeholder="qwerty"
+          placeholder=""
           value={password}
           onChange={e => setPassword(e.target.value)}
         />

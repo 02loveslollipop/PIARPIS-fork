@@ -1,18 +1,39 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import imagen from '../../assets/imagen.jpg';
+import { wait } from '@testing-library/user-event/dist/utils';
 
 const Login = ({ setIsAuthenticated }) => {
-  const adminEmail = 'admin@example.com';
-  const adminPassword = 'qwerty';
+
+    async function login(username, password) {
+    const url = "https://02loveslollipop.pythonanywhere.com/login"; // TODO: no quemar la URL
+    const data = {
+        username: username,
+        password: password
+    };
+    
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+    if (response.ok) {
+        const responseData = await response.json();
+        localStorage.setItem('secretAuth', responseData.secretAuth);
+        return true;
+    } else {
+        return false;
+    }
+  }
 
   const [email, setEmail] = useState('admin@example.com');
   const [password, setPassword] = useState('qwerty');
 
-  const handleLogin = e => {
+  const handleLogin = async e => {
     e.preventDefault();
-
-    if (email === adminEmail && password === adminPassword) {
+    if (await login(email, password)) {
       Swal.fire({
         timer: 1500,
         showConfirmButton: false,
@@ -20,6 +41,7 @@ const Login = ({ setIsAuthenticated }) => {
           Swal.showLoading();
         },
         willClose: () => {
+          
           localStorage.setItem('is_authenticated', true);
           setIsAuthenticated(true);
 
@@ -48,6 +70,8 @@ const Login = ({ setIsAuthenticated }) => {
         },
       });
     }
+
+    
   };
 
   return (
@@ -57,7 +81,7 @@ const Login = ({ setIsAuthenticated }) => {
         <label htmlFor="email">Correo Electrónico</label>
         <input
           id="email"
-          type="email"
+          type="text"
           name="email"
           placeholder="admin@example.com"
           value={email}

@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 
 async function getParkings() {
   const url = "https://02loveslollipop.pythonanywhere.com/get"; // TODO: no quemar la URL
-  const response = await fetch(url,{
+  const response = await fetch(url, {
     method: 'GET',
     headers: {
-      'hash' : localStorage.getItem('secretAuth')
-    }});
+      'hash': localStorage.getItem('secretAuth')
+    }
+  });
   if (!response.ok) {
     throw new Error('Error al obtener los vehículos');
   }
@@ -54,7 +55,7 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
             <th>Fecha de Inicio</th>
             <th>Fecha de Fin</th>
             <th colSpan={2} className="text-center">
-              Acciones Disponibles
+              Acciones Disponibles (En desarrollo)
             </th>
           </tr>
         </thead>

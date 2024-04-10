@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
-import imagen from '../../assets/imagen.jpg';
+import imagen from '../../assets/imagen.png';
 
 async function login(username, password) {
   const url = "https://02loveslollipop.pythonanywhere.com/login"; // TODO: no quemar la URL
@@ -40,7 +40,7 @@ const Login = ({ setIsAuthenticated }) => {
           Swal.showLoading();
         },
         willClose: () => {
-          
+
           localStorage.setItem('is_authenticated', true);
           setIsAuthenticated(true);
 
@@ -70,7 +70,7 @@ const Login = ({ setIsAuthenticated }) => {
       });
     }
 
-    
+
   };
 
   return (

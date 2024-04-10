@@ -20,14 +20,13 @@ const Dashboard = ({ setIsAuthenticated }) => {
   }, []);
 
   const handleEdit = id => {
-    const [employee] = employees.filter(employee => employee.id === id);
-
+    /*const [employee] = employees.filter(employee => employee.id === id);
     setSelectedEmployee(employee);
-    setIsEditing(true);
+    setIsEditing(true);*/
   };
 
   const handleDelete = id => {
-    Swal.fire({
+    /*Swal.fire({
       icon: 'warning',
       title: 'Está seguro?',
       text: "No podrá revertir esto!",
@@ -50,7 +49,7 @@ const Dashboard = ({ setIsAuthenticated }) => {
         localStorage.setItem('employees_data', JSON.stringify(employeesCopy));
         setEmployees(employeesCopy);
       }
-    });
+    });*/
   };
 
   return (

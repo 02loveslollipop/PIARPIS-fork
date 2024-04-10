@@ -379,7 +379,11 @@ html {
 
 body {
   color: #404040;
-  background: white;
+  background-color: #ffffff;
+
+  background-image: linear-gradient(to bottom, #ffffff, #9b97dd);
+
+  height: 800px;
   font-size: 1rem;
 }
 

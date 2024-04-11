@@ -133,12 +133,13 @@ table td {
     flex: 0 0 auto;
     text-decoration: none;
     color: #fff;
+    background-color: transparent;
     font-weight: bold;
     border: none;
     border-radius: 8vw;
     padding: 0.5rem 1rem;
-    transition: all 0.3s ease;
-    margin-right: 1vw;
+    transition: background-color 0.3s ease;
+    margin-top: 0.75vh;
     cursor: pointer;
 
     
@@ -146,7 +147,6 @@ table td {
 
 #navbar__button:hover {
     background-color: #001F47;
-    border: #fff 1px solid;
 }
 
    

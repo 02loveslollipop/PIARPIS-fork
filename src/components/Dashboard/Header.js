@@ -1,6 +1,5 @@
 import React from 'react';
 import './Dashboard.css';
-import imagen from '../../assets/imagen.png';
 import Logout from '../Logout';
 
 const Header = ({ setIsAdding, setIsAuthenticated }) => {
@@ -11,7 +10,7 @@ const Header = ({ setIsAdding, setIsAuthenticated }) => {
             <div class="navbar__links-container">
               <ul class = "navbar__links">
                  
-                <li><a id='navbar__button' onClick={() => setIsAdding(true)}>Agregar</a></li>
+                <li><button id='navbar__button' onClick={() => setIsAdding(true)}>Agregar</button></li>
               </ul>
             </div>
           <div class="login_container">

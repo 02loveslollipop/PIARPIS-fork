@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
-
+import './Dashboard.css';
 import Header from './Header';
 import Table from './Table';
 import Add from './Add';
@@ -53,36 +53,43 @@ const Dashboard = ({ setIsAuthenticated }) => {
   };
 
   return (
-    <div className="container">
-      {!isAdding && !isEditing && (
-        <>
-          <Header
-            setIsAdding={setIsAdding}
-            setIsAuthenticated={setIsAuthenticated}
-          />
-          <Table
+    <div id="table-main-screen">
+      <div className="container">
+        {!isAdding && !isEditing && (
+          <div className='table-screen'>
+            <Header
+              setIsAdding={setIsAdding}
+              setIsAuthenticated={setIsAuthenticated}
+            />
+            <div style={{ marginTop: '9vh', marginBottom: '4vh' }}></div>
+            <div className="table-container">
+              <Table
+                employees={employees}
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            </div>
+          </div>
+        )}
+        {isAdding && (
+          <Add
             employees={employees}
-            handleEdit={handleEdit}
-            handleDelete={handleDelete}
+            setEmployees={setEmployees}
+            setIsAdding={setIsAdding}
           />
-        </>
-      )}
-      {isAdding && (
-        <Add
-          employees={employees}
-          setEmployees={setEmployees}
-          setIsAdding={setIsAdding}
-        />
-      )}
-      {isEditing && (
-        <Edit
-          employees={employees}
-          selectedEmployee={selectedEmployee}
-          setEmployees={setEmployees}
-          setIsEditing={setIsEditing}
-        />
-      )}
+        )}
+        {isEditing && (
+          <Edit
+            employees={employees}
+            selectedEmployee={selectedEmployee}
+            setEmployees={setEmployees}
+            setIsEditing={setIsEditing}
+          />
+        )}
+      </div>
+      <div className="wallpaper"></div>
     </div>
+    
   );
 };
 

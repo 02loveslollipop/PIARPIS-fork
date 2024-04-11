@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './Dashboard.css';
 
 async function getParkings() {
   const url = "https://02loveslollipop.pythonanywhere.com/get"; // TODO: no quemar la URL

@@ -102,7 +102,6 @@ const Login = ({ setIsAuthenticated }) => {
               onChange={e => setPassword(e.target.value)}
             />
             <input style={{ marginTop: '12px' }} type="submit" value="Login" />
-            <div className='wallpaper'></div>
           </form>
         </div>
         

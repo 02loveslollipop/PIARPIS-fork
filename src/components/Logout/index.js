@@ -1,5 +1,7 @@
 import React from 'react';
 import Swal from 'sweetalert2';
+import './Logout.css';
+
 
 const Logout = ({ setIsAuthenticated }) => {
   const handleLogout = () => {
@@ -28,11 +30,10 @@ const Logout = ({ setIsAuthenticated }) => {
 
   return (
     <button
-      style={{ marginLeft: '12px' }}
-      className="muted-button"
+      id="navbar__login"
       onClick={handleLogout}
     >
-      Cerrar sesión de PIARPIS
+      Logout
     </button>
   );
 };

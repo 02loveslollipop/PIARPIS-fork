@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import imagen from '../../assets/imagen.png';
+import './Login.css';
 
 async function login(username, password) {
   const url = "https://02loveslollipop.pythonanywhere.com/login"; // TODO: no quemar la URL
@@ -74,30 +75,38 @@ const Login = ({ setIsAuthenticated }) => {
   };
 
   return (
-    <div className="custom-container">
-      <form onSubmit={handleLogin}>
-        <h1>Inicio de sesión - PIARPIS</h1>
-        <label htmlFor="email">Correo Electrónico</label>
-        <input
-          id="email"
-          type="email"
-          name="email"
-          placeholder=""
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-        <label htmlFor="password">Contraseña</label>
-        <input
-          id="password"
-          type="password"
-          name="password"
-          placeholder=""
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
-        <input style={{ marginTop: '12px' }} type="submit" value="Login" />
-      </form>
-      <img src={imagen} alt="Imagen" />
+    <div className='login-screen'>
+      <div className="login-container">
+        <div class="icon-container">
+          <img src={imagen} alt="Login logo" class="login-photo" />
+        </div>
+        <div className="login-box">
+          <form onSubmit={handleLogin}>
+            <h1>PIARPIS</h1>
+            <label htmlFor="email" className=''>Correo Electrónico</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder=""
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
+            <label htmlFor="password">Contraseña</label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              placeholder=""
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+            />
+            <input style={{ marginTop: '12px' }} type="submit" value="Login" />
+            <div className='wallpaper'></div>
+          </form>
+        </div>
+        
+      </div>
     </div>
   );
 };

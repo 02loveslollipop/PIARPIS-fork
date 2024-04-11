@@ -21,6 +21,7 @@ const Logout = ({ setIsAuthenticated }) => {
           },
           willClose: () => {
             localStorage.setItem('is_authenticated', false);
+            localStorage.removeItem('token');
             setIsAuthenticated(false);
           },
         });

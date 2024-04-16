@@ -1,6 +1,6 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
 
-body {color: #b86565; font-family: 'Montserrat', sans-serif; font-size: 93%; font-weight:normal;margin: 0; }
+body {color: #3a7dc1; font-family: 'Montserrat', sans-serif; font-size: 93%; font-weight:normal;margin: 0; }
 
 #table-main-screen {
     background-image: url('../../assets/bg1.jpg');
@@ -39,13 +39,13 @@ tbody tr:nth-child(even) {
 
     button {
         background-color: #003170;
-        color: #fff;
+        color: #fff !important;
         border: none;
-        padding: 8px;
         border-radius: 0.75vw;
         cursor: pointer;
         align-self: center center;
         transition: background-color 0.3s ease;
+        
     }
 
     button:hover {
@@ -65,7 +65,6 @@ tbody tr:nth-child(odd) {
         background-color: #0054C2;
         color: #fff;
         border: none;
-        padding: 8px;
         border-radius: 0.75vw;
         cursor: pointer;
         transition: background-color 0.3s ease;

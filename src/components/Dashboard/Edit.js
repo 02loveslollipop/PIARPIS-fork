@@ -52,60 +52,64 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
   };
 
   return (
-    <div className="small-container">
-      <form onSubmit={handleUpdate}>
-        <h1>Edit Employee</h1>
-        <label htmlFor="firstName">Nombre</label>
-        <input
-          id="firstName"
-          type="text"
-          name="firstName"
-          value={firstName}
-          onChange={e => setFirstName(e.target.value)}
-        />
-        <label htmlFor="lastName">Placa</label>
-        <input
-          id="lastName"
-          type="text"
-          name="lastName"
-          value={lastName}
-          onChange={e => setLastName(e.target.value)}
-        />
-        <label htmlFor="email">Valor parqueadero ($)</label>
-        <input
-          id="email"
-          type="number"
-          name="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-        <label htmlFor="salary">Fecha inicio</label>
-        <input
-          id="salary"
-          type="date"
-          name="salary"
-          value={salary}
-          onChange={e => setSalary(e.target.value)}
-        />
-        <label htmlFor="date">Fecha fin</label>
-        <input
-          id="date"
-          type="date"
-          name="date"
-          value={date}
-          onChange={e => setDate(e.target.value)}
-        />
-        <div style={{ marginTop: '30px' }}>
-          <input type="submit" value="Actualizar" />
-          <input
-            style={{ marginLeft: '12px' }}
-            className="muted-button"
-            type="button"
-            value="Cancelar"
-            onClick={() => setIsEditing(false)}
-          />
+    <div className='edit-screen'>
+      <div classname="edit-container">
+        <div className="edit-box">
+          <form onSubmit={handleUpdate}>
+            <h1>Editar vehículo</h1>
+            <label htmlFor="firstName">Nombre</label>
+            <input
+              id="firstName"
+              type="text"
+              name="firstName"
+              value={firstName}
+              onChange={e => setFirstName(e.target.value)}
+            />
+            <label htmlFor="lastName">Placa</label>
+            <input
+              id="lastName"
+              type="text"
+              name="lastName"
+              value={lastName}
+              onChange={e => setLastName(e.target.value)}
+            />
+            <label htmlFor="email">Valor parqueadero ($)</label>
+            <input
+              id="email"
+              type="number"
+              name="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
+            <label htmlFor="salary">Fecha inicio</label>
+            <input
+              id="salary"
+              type="date"
+              name="salary"
+              value={salary}
+              onChange={e => setSalary(e.target.value)}
+            />
+            <label htmlFor="date">Fecha fin</label>
+            <input
+              id="date"
+              type="date"
+              name="date"
+              value={date}
+              onChange={e => setDate(e.target.value)}
+            />
+            <div style={{ marginTop: '30px' }}>
+              <input type="submit" value="Actualizar" />
+              <input
+                style={{ marginLeft: '12px' }}
+                className="muted-button"
+                type="submit"
+                value="Cancelar"
+                onClick={() => setIsEditing(false)}
+              />
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
   );
 };

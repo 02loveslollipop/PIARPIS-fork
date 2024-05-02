@@ -10,13 +10,16 @@ h1 {
     0% {
         background-image: url('../../assets/bg1.jpg');
     }
+
     25% {
         background-image: url('../../assets/bg2.jpg');
     }
+
     75% {
         background-image: url('../../assets/bg3.jpg');
     }
-  100% {
+
+    100% {
         background-image: url('../../assets/bg1.jpg');
     }
 }
@@ -35,25 +38,25 @@ h1 {
     overflow: hidden;
 }
 
-.login-error { 
+.login-error {
     font-weight: bold;
     color: #3a7dc1;
     background-color: rgba(200, 220, 240, 0.8);
     padding: 5px;
     border-radius: 10px;
 }
-  
+
 .icon-container {
     margin: 10% auto;
 }
-  
+
 .login-photo {
     display: block;
     margin: 0 auto;
     width: 40%;
     max-height: 75%;
 }
-  
+
 .login-container {
     position: absolute;
     top: 50%;
@@ -63,7 +66,7 @@ h1 {
     padding: 20px;
     border-radius: 10px;
 }
-  
+
 .login-box {
     max-width: 400px;
     margin: 0 auto;
@@ -71,12 +74,12 @@ h1 {
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
 }
-  
+
 form {
     margin: 0 auto;
     max-width: 320px;
 }
-    
+
 input[type="text"],
 input[type="email"],
 input[type="password"] {
@@ -87,7 +90,7 @@ input[type="password"] {
     width: 100%;
     box-sizing: border-box;
 }
-    
+
 input[type="submit"] {
     background-color: #3e9dff;
     color: white;
@@ -95,9 +98,5 @@ input[type="submit"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    
-}
-  
 
-  
-  
+}

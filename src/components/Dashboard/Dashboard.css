@@ -137,8 +137,8 @@ table td {
 #navbar__button {
     flex: 0 0 auto;
     text-decoration: none;
-    color: #fff;
-    background-color: transparent;
+    color: #ffffff;
+    background-color: #0c57ba;
     font-weight: bold;
     border: none;
     border-radius: 8vw;

@@ -1,6 +1,34 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 
+async function editParking(id,name, plate, invoice, inicial_time, final_time) {
+  const url = "https://02loveslollipop.pythonanywhere.com/edit"; // TODO: no quemar la URL
+  const data = {
+    id: id,
+    name: name,
+    plate: plate,
+    invoice: invoice,
+    inicial_time: inicial_time,
+    final_time: final_time
+  };
+  console.log(localStorage.getItem('secretAuth'));
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'hash': localStorage.getItem('secretAuth')
+    },
+    body: JSON.stringify(data)
+  });
+  if (!response.ok) {
+    throw new Error('Error al editar el vehículo');
+  }
+
+
+}
+
+
 const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
   const id = selectedEmployee.id;
 
@@ -10,7 +38,7 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
   const [salary, setSalary] = useState(selectedEmployee.salary);
   const [date, setDate] = useState(selectedEmployee.date);
 
-  const handleUpdate = e => {
+  const handleUpdate = async e => {
     e.preventDefault();
 
     if (!firstName || !lastName || !email || !salary || !date) {
@@ -22,33 +50,25 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
       });
     }
 
-    const employee = {
-      id,
-      firstName,
-      lastName,
-      email,
-      salary,
-      date,
-    };
-
-    for (let i = 0; i < employees.length; i++) {
-      if (employees[i].id === id) {
-        employees.splice(i, 1, employee);
-        break;
-      }
+    
+    try{
+      await editParking(id,firstName, lastName, email, salary, date);
+      Swal.fire({
+        icon: 'success',
+        title: 'Actualizado!',
+        text: `${employee.firstName}, placa: ${employee.lastName} ha sido actualizado.`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
-
-    localStorage.setItem('employees_data', JSON.stringify(employees));
-    setEmployees(employees);
-    setIsEditing(false);
-
-    Swal.fire({
-      icon: 'success',
-      title: 'Actualizado!',
-      text: `${employee.firstName}, placa: ${employee.lastName} ha sido actualizado.`,
-      showConfirmButton: false,
-      timer: 1500,
-    });
+    catch (error) {
+      return Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'Error al editar el vehículo.',
+        showConfirmButton: true,
+      });
+    }
   };
 
   return (

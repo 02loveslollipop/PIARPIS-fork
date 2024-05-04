@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\public",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\Dashboard",
+    "\\src\\components\\Database",
+    "\\src\\data"
+  ],
+  "SelectedNode": "\\src\\components\\Database\\mongodb.js",
+  "PreviewInSolutionExplorer": false
+}

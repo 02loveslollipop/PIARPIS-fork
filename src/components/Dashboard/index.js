@@ -8,10 +8,10 @@ import Edit from './Edit';
 
 import { employeesData } from '../../data';
 
-async function deleteParking(id,name, plate, invoice, inicial_time, final_time) {
+async function deleteParking(id) {
   const url = "https://02loveslollipop.pythonanywhere.com/delete"; // TODO: no quemar la URL
   const data = {
-    id: id,
+    Id: id,
   };
   console.log(localStorage.getItem('secretAuth'));
 
@@ -42,8 +42,7 @@ const Dashboard = ({ setIsAuthenticated }) => {
   }, []);
 
   const handleEdit = id => {
-    const [employee] = employees.filter(employee => employee.id === id);
-    setSelectedEmployee(employee);
+    setSelectedEmployee(id);
     setIsEditing(true);
   };
 
@@ -59,12 +58,13 @@ const Dashboard = ({ setIsAuthenticated }) => {
       if (result.value) {
         try{
           deleteParking(id);
+
           Swal.fire({
             icon: 'success',
             title: 'Eliminado!',
-            text: `${employee.firstName} ha sido eliminado.`,
+            text: `${id} ha sido eliminado.`,
             showConfirmButton: false,
-            timer: 1500,
+            timer: 2000,
           });
         } catch (error) {
           Swal.fire({
@@ -75,6 +75,11 @@ const Dashboard = ({ setIsAuthenticated }) => {
           });
         }        
       }
+    }).then(() => {
+      setTimeout(() => {
+        setIsEditing(true);
+        setIsEditing(false); // Para que se actualice la tabla
+      }, 3000);
     });
   };
 

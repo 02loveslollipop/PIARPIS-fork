@@ -30,10 +30,6 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
     fetchParkings();
   }, []);
 
-  parkings.forEach((parking, i) => {
-    parking.id = i + 1;
-  });
-
   /*
 
   const formatter = new Intl.NumberFormat('en-US', {
@@ -64,7 +60,7 @@ const Table = ({ employees, handleEdit, handleDelete }) => {
           {parkings.length > 0 ? (
             parkings.map((parking, i) => (
               <tr key={parking.id}>
-                <td>{i + 1}</td>
+                <td>{parking.id}</td>
                 <td>{parking.name}</td>
                 <td>{parking.plate}</td>
                 <td>{parking.invoice}</td>

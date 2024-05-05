@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 
 async function editParking(id,name, plate, invoice, inicial_time, final_time) {
-  const url = "https://02loveslollipop.pythonanywhere.com/edit"; // TODO: no quemar la URL
+  const url = "https://02loveslollipop.pythonanywhere.com/update"; // TODO: no quemar la URL
   const data = {
-    id: id,
-    name: name,
-    plate: plate,
-    invoice: invoice,
-    inicial_time: inicial_time,
-    final_time: final_time
+    Id: id,
+    new_name: name,
+    new_plate: plate,
+    new_invoice: invoice,
+    new_inicial_time: inicial_time,
+    new_final_time: final_time
   };
   console.log(localStorage.getItem('secretAuth'));
 
@@ -30,13 +30,13 @@ async function editParking(id,name, plate, invoice, inicial_time, final_time) {
 
 
 const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
-  const id = selectedEmployee.id;
 
-  const [firstName, setFirstName] = useState(selectedEmployee.firstName);
-  const [lastName, setLastName] = useState(selectedEmployee.lastName);
-  const [email, setEmail] = useState(selectedEmployee.email);
-  const [salary, setSalary] = useState(selectedEmployee.salary);
-  const [date, setDate] = useState(selectedEmployee.date);
+  const [firstName, setFirstName] = useState(null);
+  const [lastName, setLastName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [salary, setSalary] = useState(null);
+  const [date, setDate] = useState(null);
+  const id = selectedEmployee
 
   const handleUpdate = async e => {
     e.preventDefault();
@@ -56,7 +56,7 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
       Swal.fire({
         icon: 'success',
         title: 'Actualizado!',
-        text: `${employee.firstName}, placa: ${employee.lastName} ha sido actualizado.`,
+        text: `${firstName}, placa: ${lastName} ha sido actualizado.`,
         showConfirmButton: false,
         timer: 1500,
       });
@@ -65,7 +65,7 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
       return Swal.fire({
         icon: 'error',
         title: 'Error!',
-        text: 'Error al editar el vehículo.',
+        text: error.message,
         showConfirmButton: true,
       });
     }

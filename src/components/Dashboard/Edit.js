@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 
 async function editParking(id,name, plate, invoice, inicial_time, final_time) {
-  const url = "https://02loveslollipop.pythonanywhere.com/update"; // TODO: no quemar la URL
+  const url = "http://127.0.0.1:6970/update"; // TODO: no quemar la URL
   const data = {
     Id: id,
     new_name: name,

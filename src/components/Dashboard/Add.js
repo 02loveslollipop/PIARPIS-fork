@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 */
 
 async function addParking(name, plate, invoice, inicial_time, final_time) {
-  const url = "https://02loveslollipop.pythonanywhere.com/insert"; // TODO: no quemar la URL
+  const url = "http://127.0.0.1:6970/insert"; // TODO: no quemar la URL
   const data = {
     name: name,
     plate: plate,

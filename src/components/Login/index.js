@@ -4,7 +4,7 @@ import imagen from '../../assets/imagen.png';
 import './Login.css';
 
 async function login(username, password) {
-  const url = "https://02loveslollipop.pythonanywhere.com/login"; // TODO: no quemar la URL
+  const url = "http://127.0.0.1:6970/login"; // TODO: no quemar la URL
   const data = {
     username: username,
     password: password

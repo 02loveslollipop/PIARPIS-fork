@@ -9,7 +9,7 @@ import Edit from './Edit';
 import { employeesData } from '../../data';
 
 async function deleteParking(id) {
-  const url = "https://02loveslollipop.pythonanywhere.com/delete"; // TODO: no quemar la URL
+  const url = "http://127.0.0.1:6970http://127.0.0.1:6970/delete"; // TODO: no quemar la URL
   const data = {
     Id: id,
   };

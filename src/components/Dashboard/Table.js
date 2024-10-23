@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
 
 async function getParkings() {
-  const url = "http://127.0.0.1:6970/get"; // TODO: no quemar la URL
+  const url = "https://02loveslollipop.pythonanywhere.com/get"; // TODO: no quemar la URL
   const response = await fetch(url, {
     method: 'GET',
     headers: {
